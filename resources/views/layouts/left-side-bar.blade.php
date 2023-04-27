@@ -5,7 +5,7 @@
             <div class="nav">
                 <div class="sb-sidenav-menu-heading text-info">Accounting System</div>
                 <hr class="bg-info">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link  {{ request()->routeIs('home') ? 'active' : null }}" href="{{ route('home') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>

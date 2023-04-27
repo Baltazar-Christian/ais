@@ -62,13 +62,13 @@
                                                 </div>
                                             </div>
                                             <div class="mt-4 mb-0">
-                                                <button type="submit" class="btn btn-info">
+                                                <button type="submit" class="btn btn-info float-end">
                                                     {{ __('Register') }}
                                                 </button>                                            </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="{{ route('login') }}" class="text-decoration-none">Have an account? Go to login</a></div>
+                                        <div class="small"><a href="{{ route('login') }}" class="text-decoration-none text-secondary">Have an account? <span class="text-info"> Go to login</span></a></div>
                                     </div>
                                 </div>
                             </div>
