@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\FinancialYear;
 
 class FinancialYearController extends Controller
 {
@@ -11,7 +12,8 @@ class FinancialYearController extends Controller
      */
     public function index()
     {
-        //
+        $financialYears = FinancialYear::all();
+        return view('financial_years.index', compact('financialYears'));
     }
 
     /**
@@ -19,7 +21,8 @@ class FinancialYearController extends Controller
      */
     public function create()
     {
-        //
+        return view('financial_years.create');
+
     }
 
     /**
@@ -27,7 +30,13 @@ class FinancialYearController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $financialYear = new FinancialYear();
+        $financialYear->name = $request->input('name');
+        $financialYear->start_date = $request->input('start_date');
+        $financialYear->end_date = $request->input('end_date');
+        $financialYear->save();
+    
+        return redirect()->route('financial_years.index');
     }
 
     /**
@@ -43,22 +52,32 @@ class FinancialYearController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('financial_years.edit', compact('financialYear'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, FinancialYear $financialYear)
     {
-        //
+        $financialYear->name = $request->input('name');
+        $financialYear->start_date = $request->input('start_date');
+        $financialYear->end_date = $request->input('end_date');
+        $financialYear->save();
+    
+        return redirect()->route('financial_years.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( $id)
     {
-        //
+
+        $financialYear=FinancialYear::find($id);
+        $financialYear->delete();
+
+        return redirect()->route('financial_years.index');
     }
 }
