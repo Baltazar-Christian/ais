@@ -52,7 +52,7 @@
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small text-decoration-none"><a href="register.html" class="text-decoration-none text-dark">Need an account? <span class="text-info">Sign up!</span> </a></div>
+                                        <div class="small text-decoration-none"><a href="{{ route('register') }}" class="text-decoration-none text-dark">Need an account? <span class="text-info">Sign up!</span> </a></div>
                                     </div>
                                 </div>
                             </div>
