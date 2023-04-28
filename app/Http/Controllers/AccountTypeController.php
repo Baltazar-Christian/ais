@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AccountType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AccountTypeController extends Controller
 {
@@ -29,7 +30,16 @@ class AccountTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $accountType = new AccountType();
+        $accountType->name = $request->input('name');
+        $accountType->description = $request->input('description');
+        $accountType->account_code = $request->input('account_code');
+        $accountType->min_code = $request->input('min_code');
+        $accountType->max_code = $request->input('max_code');
+        $accountType->created_by = Auth::user()->id;
+        $accountType->save();
+    
+        return redirect()->route('account-types.index');
     }
 
     /**
