@@ -74,6 +74,8 @@ class AccountSubTypeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $accountType=accountSubType::find($id);
+        $accountType->delete();
+        return back();
     }
 }
