@@ -7,7 +7,7 @@
         <div class="card mb-4">
             <div class="card-header bg-dark text-info">
                 <i class="fas fa-calculator me-1"></i>
-                Accounts
+               Company Accounts
 
                 <a href="{{ route('accounts.create') }}" class="btn btn-info float-end">Create Account</a>
             </div>
