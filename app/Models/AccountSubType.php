@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class AccountSubType extends Model
 {
     use HasFactory;
+
+
+    public function account()
+    {
+        return $this->belongsTo(AccountType::class, 'account_id','id');
+    }
 }

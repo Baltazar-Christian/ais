@@ -7,11 +7,11 @@
         <div class="card mb-4">
             <div class="card-header bg-dark text-info">
                 {{-- <i class="fas fa-calculator me-1"></i> --}}
-                Account: {{ $account->name }}
-                <br>
+                Account Type: {{ $account->name }}
+                {{-- <br>
                 Code: {{ $account->account_code }}
                 <br>
-                Range: {{ $account->min_code }} - {{ $account->max_code }}
+                Range: {{ $account->min_code }} - {{ $account->max_code }} --}}
                 <a href="{{ url('/account-subtypes/create/'.$account->id) }}" class="btn btn-info float-end">Create New</a>
                 <a href="{{ route('account-types.index') }}" class="btn btn-info float-end mx-1"> Back</a>
             </div>

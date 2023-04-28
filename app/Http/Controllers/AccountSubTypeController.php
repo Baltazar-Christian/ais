@@ -56,17 +56,26 @@ class AccountSubTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit( $id)
     {
-        //
+        $account=AccountSubType::find($id);
+        return view('account_subtypes.edit', compact('account'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $accountType =AccountSubType::find($request->account_id);
+        $accountType->name = $request->input('name');
+        $accountType->description = $request->input('description');
+        $accountType->account_code = $request->input('account_code');
+        $accountType->min_code = $request->input('min_code');
+        $accountType->max_code = $request->input('max_code');
+        $accountType->update();
+        
+        return redirect('/account-types/show/'. $accountType->account_id);
     }
 
     /**

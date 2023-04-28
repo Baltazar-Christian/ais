@@ -65,9 +65,18 @@ class AccountTypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $accountType = AccountType::where('id',$request->id)->first();
+        $accountType->name = $request->input('name');
+        $accountType->description = $request->input('description');
+        $accountType->account_code = $request->input('account_code');
+        $accountType->min_code = $request->input('min_code');
+        $accountType->max_code = $request->input('max_code');
+        $accountType->created_by = Auth::user()->id;
+        $accountType->update();
+    
+        return redirect()->route('account-types.index');
     }
 
     /**
