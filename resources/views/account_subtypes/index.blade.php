@@ -40,7 +40,7 @@
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     <a href="{{ url('/account-subtypes/destroy/' . $item->id) }}"
-                                        class="btn btn-sm btn-danger">
+                                        class="btn btn-sm btn-danger text-info">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>
