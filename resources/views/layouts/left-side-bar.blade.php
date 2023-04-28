@@ -92,8 +92,8 @@
                 </a>
                 <div class="collapse" id="accountchart" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('financial_years.index') }}">Financial Year</a>
-                        <a class="nav-link" href="layout-sidenav-light.html">Accounts</a>
+                        <a class="nav-link" href="{{ route('financial_years.index') }}">Financial Years</a>
+                        <a class="nav-link" href="{{ route('accounts.index') }}">Accounts</a>
                         <a class="nav-link" href="{{ route('account-types.index') }}">Account Types</a>
                         <a class="nav-link" href="layout-sidenav-light.html">Account Process</a>
                     </nav>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AccountTypeController;
 use App\Http\Controllers\FinancialYearController;
 use App\Http\Controllers\AccountSubTypeController;
@@ -51,8 +52,14 @@ Route::any('/account-subtypes/show/{id}',[AccountSubTypeController::class,'show'
 Route::any('/account-subtypes/update',[AccountSubTypeController::class,'update'])->name('account-subtypes.update');
 
 
-
-
+// For Accounts Routes
+Route::get('/accounts/index',[AccountController::class,'index'])->name('accounts.index');
+Route::get('/accounts/create',[AccountController::class,'create'])->name('accounts.create');
+Route::any('/accounts/store',[AccountController::class,'store'])->name('accounts.store');
+Route::any('/accounts/edit/{id}',[AccountController::class,'edit'])->name('accounts.edit');
+Route::any('/accounts/destroy/{id}',[AccountController::class,'destroy'])->name('accounts.destroy');
+Route::any('/accounts/show/{id}',[AccountController::class,'show'])->name('accounts.show');
+Route::any('/accounts/update',[AccountController::class,'update'])->name('accounts.update');
 
 
 
