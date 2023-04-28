@@ -21,7 +21,7 @@ class AccountTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('account_types.create');
     }
 
     /**

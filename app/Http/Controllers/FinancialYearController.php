@@ -22,7 +22,6 @@ class FinancialYearController extends Controller
     public function create()
     {
         return view('financial_years.create');
-
     }
 
     /**
