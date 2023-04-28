@@ -4,9 +4,9 @@
         <div class="d-flex align-items-center justify-content-between small">
             <div class="text-muted">Copyright &copy; Your Website 2021</div>
             <div>
-                <a href="#">Privacy Policy</a>
+                <a href="#" class="text-decoration-none text-info">Privacy Policy</a>
                 &middot;
-                <a href="#">Terms &amp; Conditions</a>
+                <a href="#" class="text-decoration-none text-info">Terms &amp; Conditions</a>
             </div>
         </div>
     </div>

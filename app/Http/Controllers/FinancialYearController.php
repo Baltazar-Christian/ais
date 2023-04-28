@@ -52,6 +52,7 @@ class FinancialYearController extends Controller
      */
     public function edit(string $id)
     {
+        $financialYear=FinancialYear::find($id);
         return view('financial_years.edit', compact('financialYear'));
 
     }
