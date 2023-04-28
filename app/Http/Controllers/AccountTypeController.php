@@ -53,9 +53,10 @@ class AccountTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $account=AccountType::find($id);
+        return view('account_types.edit', compact('account'));
     }
 
     /**
@@ -71,6 +72,8 @@ class AccountTypeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $accountType=accountType::find($id);
+        $accountType->delete();
+        return redirect()->route('account-types.index');
     }
 }

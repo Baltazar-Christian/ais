@@ -38,6 +38,10 @@ Route::get('/account-types/create',[AccountTypeController::class,'create'])->nam
 Route::any('/account-types/store',[AccountTypeController::class,'store'])->name('account-types.store');
 Route::any('/account-types/edit/{id}',[AccountTypeController::class,'edit'])->name('account-types.edit');
 Route::any('/account-types/destroy/{id}',[AccountTypeController::class,'destroy'])->name('account-types.destroy');
+Route::any('/account-types/show/{id}',[AccountTypeController::class,'show'])->name('account-types.show');
+Route::any('/account-types/update',[AccountTypeController::class,'update'])->name('account-types.update');
+
+
 
 
 
