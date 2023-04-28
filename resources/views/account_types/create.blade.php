@@ -21,7 +21,7 @@
 
                     <div class="form-group">
                         <label for="year">Account Code</label>
-                        <input type="number" name="name" min="0" placeholder="Enter Account Code"  class="form-control" required>
+                        <input type="number" name="name" min="0" placeholder="Enter Account Code" name="account_code"  class="form-control" required>
                     </div>
     
                     <div class="form-group">
