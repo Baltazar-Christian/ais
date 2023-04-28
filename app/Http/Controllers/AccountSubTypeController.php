@@ -7,23 +7,24 @@ use Illuminate\Http\Request;
 use App\Models\AccountSubType;
 use Illuminate\Support\Facades\Auth;
 
-class AccountTypeController extends Controller
+class AccountSubTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $accountTypes = AccountType::all();
-        return view('account_types.index', compact('accountTypes'));
+        $accountTypes = AccountSubType::all();
+        return view('account_subtypes.index', compact('accountTypes'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        return view('account_types.create');
+        $account=AccountType::where('id',$id)->first();
+        return view('account_subtypes.create',compact('account'));
     }
 
     /**
@@ -31,16 +32,17 @@ class AccountTypeController extends Controller
      */
     public function store(Request $request)
     {
-        $accountType = new AccountType();
+        $accountType = new AccountSubType();
         $accountType->name = $request->input('name');
+        $accountType->account_id = $request->input('account_id');
         $accountType->description = $request->input('description');
         $accountType->account_code = $request->input('account_code');
         $accountType->min_code = $request->input('min_code');
         $accountType->max_code = $request->input('max_code');
         $accountType->created_by = Auth::user()->id;
         $accountType->save();
-    
-        return redirect()->route('account-types.index');
+        
+        return redirect('/account-types/show/'.$request->account_id);
     }
 
     /**
@@ -48,18 +50,15 @@ class AccountTypeController extends Controller
      */
     public function show(string $id)
     {
-        $account=AccountType::find($id);
-        $accounts=AccountSubType::where('account_id',$id)->latest()->get();
-        return view('account_subtypes.index', compact('accounts','account'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(string $id)
     {
-        $account=AccountType::find($id);
-        return view('account_types.edit', compact('account'));
+        //
     }
 
     /**
@@ -75,8 +74,6 @@ class AccountTypeController extends Controller
      */
     public function destroy(string $id)
     {
-        $accountType=accountType::find($id);
-        $accountType->delete();
-        return redirect()->route('account-types.index');
+        //
     }
 }

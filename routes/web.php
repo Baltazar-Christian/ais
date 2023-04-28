@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountTypeController;
 use App\Http\Controllers\FinancialYearController;
+use App\Http\Controllers\AccountSubTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,13 @@ Route::any('/account-types/destroy/{id}',[AccountTypeController::class,'destroy'
 Route::any('/account-types/show/{id}',[AccountTypeController::class,'show'])->name('account-types.show');
 Route::any('/account-types/update',[AccountTypeController::class,'update'])->name('account-types.update');
 
+// For AccountSubTypes Route
+Route::get('/account-subtypes/create/{id}',[AccountSubTypeController::class,'create'])->name('account-subtypes.create');
+Route::any('/account-subtypes/store',[AccountSubTypeController::class,'store'])->name('account-subtypes.store');
+Route::any('/account-subtypes/edit/{id}',[AccountSubTypeController::class,'edit'])->name('account-subtypes.edit');
+Route::any('/account-subtypes/destroy/{id}',[AccountSubTypeController::class,'destroy'])->name('account-subtypes.destroy');
+Route::any('/account-subtypes/show/{id}',[AccountSubTypeController::class,'show'])->name('account-subtypes.show');
+Route::any('/account-subtypes/update',[AccountSubTypeController::class,'update'])->name('account-subtypes.update');
 
 
 
