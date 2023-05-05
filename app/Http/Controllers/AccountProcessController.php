@@ -30,7 +30,11 @@ class AccountProcessController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $accountType = new AccountProcess();
+        $accountType->name = $request->input('name');
+        $accountType->save();
+    
+        return redirect()->route('accounts-process.index');
     }
 
     /**
@@ -62,6 +66,8 @@ class AccountProcessController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $account=AccountProcess::find($id);
+        $account->delete();
+        return back();
     }
 }

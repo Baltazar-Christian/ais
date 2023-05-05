@@ -9,7 +9,7 @@
                 <i class="fas fa-calculator me-1"></i>
                Account Process
 
-                <a href="{{ route('accounts.create') }}" class="btn btn-info float-end">Add Process</a>
+                <a href="{{ route('accounts-process.create') }}" class="btn btn-info float-end">Add Process</a>
             </div>
             <div class="card-body">
                 <table class="table table-responsinve" id="datatablesSimple">
@@ -29,11 +29,15 @@
                             <td>{{ $item->name }} </td>
                             <td>{{ $item->status}}</td>
                             <td>
-                                <a href="{{ url('/accounts/edit/' . $item->id) }}"
+                                <a href="{{ url('/accounts-process/edit/' . $item->id) }}"
+                                    class="btn btn-sm btn-dark text-info">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="{{ url('/accounts-process/edit/' . $item->id) }}"
                                     class="btn btn-sm btn-dark text-info">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="{{ url('/accounts/destroy/' . $item->id) }}"
+                                <a href="{{ url('/accounts-process/destroy/' . $item->id) }}"
                                     class="btn btn-sm btn-danger">
                                     <i class="fa fa-trash"></i>
                                 </a>
