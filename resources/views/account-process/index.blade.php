@@ -29,7 +29,7 @@
                             <td>{{ $item->name }} </td>
                             <td>{{ $item->status}}</td>
                             <td>
-                                <a href="{{ url('/accounts-process/edit/' . $item->id) }}"
+                                <a href="{{ url('/accounts-process/show/' . $item->id) }}"
                                     class="btn btn-sm btn-dark text-info">
                                     <i class="fa fa-eye"></i>
                                 </a>

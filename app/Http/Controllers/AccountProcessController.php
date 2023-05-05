@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Account;
 use Illuminate\Http\Request;
 use App\Models\AccountProcess;
+use App\Models\AccountProcessMapping;
 
 class AccountProcessController extends Controller
 {
@@ -42,7 +43,9 @@ class AccountProcessController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $account=AccountProcess::find($id);
+        $accounts=AccountProcessMapping::where('process_id',$id)->latest()->get();
+        return view('account-process.show', compact('accounts','account'));
     }
 
     /**
