@@ -23,7 +23,7 @@
                     </thead>
                     <tbody>
                         <?php $i=1; ?>
-                        @foreach ($accounts as $item)
+                        @foreach ($processes as $item)
                         <tr>
                             <td>{{ $i++ }}</td>
                             <td>{{ $item->name }} </td>

@@ -13,8 +13,8 @@ class AccountProcessController extends Controller
      */
     public function index()
     {
-        $accounts = AccountProcess::latest()->get();
-        return view('account-process.index', compact('accounts'));
+        $processes = AccountProcess::latest()->get();
+        return view('account-process.index', compact('processes'));
     }
 
     /**
@@ -22,7 +22,7 @@ class AccountProcessController extends Controller
      */
     public function create()
     {
-        //
+        return view('account-process.create');
     }
 
     /**
