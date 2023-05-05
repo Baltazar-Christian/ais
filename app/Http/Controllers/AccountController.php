@@ -56,15 +56,25 @@ class AccountController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $accounts = AccountSubType::all();
+        $account=Account::find($id);
+        return view('accounts.edit', compact('account','accounts'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $accountType =Account::find($request->id);
+        $accountType->name = $request->input('name');
+        $accountType->description = $request->input('description');
+        $accountType->account_code = $request->input('account_code');
+        $accountType->account_id = $request->input('account_id');
+        $accountType->created_by = Auth::user()->id;
+        $accountType->update();
+    
+        return redirect()->route('accounts.index');
     }
 
     /**
@@ -72,6 +82,8 @@ class AccountController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $account=Account::find($id);
+        $account->delete();
+        return back();
     }
 }

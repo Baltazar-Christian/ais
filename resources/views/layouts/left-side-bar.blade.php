@@ -95,7 +95,7 @@
                         <a class="nav-link" href="{{ route('financial_years.index') }}">Financial Years</a>
                         <a class="nav-link" href="{{ route('accounts.index') }}">Accounts</a>
                         <a class="nav-link" href="{{ route('account-types.index') }}">Account Types</a>
-                        <a class="nav-link" href="layout-sidenav-light.html">Account Process</a>
+                        <a class="nav-link" href="{{ route('accounts-process.index') }}">Account Process</a>
                     </nav>
                 </div>
                  <!-- ./ End of Chart of Accounts -->

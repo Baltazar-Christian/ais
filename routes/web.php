@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AccountTypeController;
 use App\Http\Controllers\FinancialYearController;
+use App\Http\Controllers\AccountProcessController;
 use App\Http\Controllers\AccountSubTypeController;
 
 /*
@@ -60,6 +61,15 @@ Route::any('/accounts/edit/{id}',[AccountController::class,'edit'])->name('accou
 Route::any('/accounts/destroy/{id}',[AccountController::class,'destroy'])->name('accounts.destroy');
 Route::any('/accounts/show/{id}',[AccountController::class,'show'])->name('accounts.show');
 Route::any('/accounts/update',[AccountController::class,'update'])->name('accounts.update');
+
+// For Account Process Routes
+Route::get('/accounts-process/index',[AccountProcessController::class,'index'])->name('accounts-process.index');
+Route::get('/accounts-process/create',[AccountProcessController::class,'create'])->name('accounts-process.create');
+Route::any('/accounts-process/store',[AccountProcessController::class,'store'])->name('accounts-process.store');
+Route::any('/accounts-process/edit/{id}',[AccountProcessController::class,'edit'])->name('accounts-process.edit');
+Route::any('/accounts-process/destroy/{id}',[AccountProcessController::class,'destroy'])->name('accounts-process.destroy');
+Route::any('/accounts-process/show/{id}',[AccountProcessController::class,'show'])->name('accounts-process.show');
+Route::any('/accounts-process/update',[AccountProcessController::class,'update'])->name('accounts-process.update');
 
 
 
