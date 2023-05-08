@@ -8,7 +8,7 @@
             <div class="card-header bg-dark text-info">
                 <i class="fas fa-calculator me-1"></i>
                 {{ $process->name }} Mapping
-                <a href="{{ route('accounts-process.create') }}" class="btn btn-info float-end">Add Mapping</a>
+                <a href="{{ url('/accounts-process-mapping/create/'.$process->id) }}" class="btn btn-info float-end">Add Mapping</a>
 
                 <a href="{{ url('/accounts-process/show/' . $process->id) }}" class="btn btn-info  float-end mx-1">
                     Back

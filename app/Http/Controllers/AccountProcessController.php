@@ -85,7 +85,21 @@ class AccountProcessController extends Controller
 
     public function create_mapping($id)
     {
-        $process=AccountProcess::find($id);
-        return view('account-process.create-mapping',compact($process));
+        $process=AccountProcess::where('id',$id)->first();
+        $accounts=Account::latest()->get();
+        return view('account-process.create-mapping',compact('process','accounts'));
+    }
+
+
+    // For Store Process Mapping
+    public function store_mapping(Request $request)
+    {
+        $mappings = new AccountProcessMapping();
+        $mappings->process_id = $request->input('process_id');
+        $mappings->account_id = $request->input('account_id');
+        $mappings->transaction_side = $request->input('transaction_side');
+        $mappings->save();
+    
+        return redirect('/accounts-process/show/'.$request->process_id);
     }
 }
