@@ -10,7 +10,7 @@
                 {{ $process->name }} Mapping
                 <a href="{{ url('/accounts-process-mapping/create/'.$process->id) }}" class="btn btn-info float-end">Add Mapping</a>
 
-                <a href="{{ url('/accounts-process/show/' . $process->id) }}" class="btn btn-info  float-end mx-1">
+                <a href="{{ route('accounts-process.index') }}" class="btn btn-info  float-end mx-1">
                     Back
                 </a>
             </div>
@@ -18,35 +18,35 @@
                 <table class="table table-responsinve" id="datatablesSimple">
                     <thead>
                         <tr>
-                            <th>SN</th>
-                            <th> Account Name </th>
-                            <th>Transaction Side </th>
-                            <th>Actions</th>
+                            {{-- <th>SN</th> --}}
+                            <th> Debit </th>
+                            <th>Credit </th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1; ?>
-                        @foreach ($mappings as $item)
+                       
                             <tr>
-                                <td>{{ $i++ }}</td>
-                                <td>{{ $item->name }} </td>
-                                <td>{{ $item->status }}</td>
+                                {{-- <td>{{ $i++ }}</td> --}}
                                 <td>
-                                    <a href="{{ url('/accounts-process/show/' . $item->id) }}"
-                                        class="btn btn-sm btn-dark text-info">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                    <a href="{{ url('/accounts-process/edit/' . $item->id) }}"
-                                        class="btn btn-sm btn-dark text-info">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                    <a href="{{ url('/accounts-process/destroy/' . $item->id) }}"
-                                        class="btn btn-sm btn-danger">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
+                                    @foreach ($debit as $item)
+                                    {{ $item->account->name }} 
+                                    <a href="{{url('/accounts-process-mappings/destroy/'.$item->id)}}" class="btn btn-sm btn-danger text-info  float-end"> <i class="fa fa-trash"></i></a> 
+                                    <hr>
+                                    <br>
+                                    @endforeach
                                 </td>
+                                <td>
+                                    @foreach ($credit as $item)
+                                    {{ $item->account->name }} 
+                                    <a href="{{url('/accounts-process-mappings/destroy/'.$item->id)}}" class="btn btn-sm btn-danger text-info  float-end"> <i class="fa fa-trash"></i></a> 
+                                    <hr>
+                                    <br>
+                                    @endforeach
+                                </td>
+                        
                             </tr>
-                        @endforeach
+                     
 
                     </tbody>
                 </table>

@@ -72,8 +72,9 @@ Route::any('/accounts-process/show/{id}',[AccountProcessController::class,'show'
 Route::any('/accounts-process/update',[AccountProcessController::class,'update'])->name('accounts-process.update');
 
 // For Account Process Mapping
-Route::get('/accounts-process-mapping/create/{id}',[AccountProcessController::class,'create_mapping'])->name('accounts-process.create');
+Route::get('/accounts-process-mapping/create/{id}',[AccountProcessController::class,'create_mapping'])->name('accounts-process-mapping.create');
 Route::any('/accounts-process-mapping/store',[AccountProcessController::class,'store_mapping'])->name('accounts-process-mapping.store');
+Route::any('/accounts-process-mappings/destroy/{id}',[AccountProcessController::class,'destroy_mapping'])->name('accounts-process-mapping.destroy');
 
 
 Route::resources(

@@ -39,7 +39,7 @@
                         <a class="nav-link" href="layout-sidenav-light.html">Purchase Orders</a>
                         <a class="nav-link" href="layout-sidenav-light.html">Vendor Payments</a>
                         <a class="nav-link" href="layout-sidenav-light.html">Expenses </a>
-                        <a class="nav-link" href="layout-sidenav-light.html">Aging Analysis</a>
+                        {{-- <a class="nav-link" href="layout-sidenav-light.html">Aging Analysis</a> --}}
                         <a class="nav-link" href="layout-sidenav-light.html">Reporting</a>
 
                     </nav>

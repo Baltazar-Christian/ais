@@ -44,8 +44,10 @@ class AccountProcessController extends Controller
     public function show(string $id)
     {
         $process=AccountProcess::find($id);
-        $mappings=AccountProcessMapping::where('process_id',$id)->latest()->get();
-        return view('account-process.show', compact('process','mappings'));
+        $debit=AccountProcessMapping::where('process_id',$id)->where('transaction_side','Debit')->latest()->get();
+        $credit=AccountProcessMapping::where('process_id',$id)->where('transaction_side','Credit')->latest()->get();
+
+        return view('account-process.show', compact('process','debit','credit'));
     }
 
     /**
@@ -101,5 +103,13 @@ class AccountProcessController extends Controller
         $mappings->save();
     
         return redirect('/accounts-process/show/'.$request->process_id);
+    }
+
+    // For Delete Mapping
+    public function destroy_mapping(string $id)
+    {
+        $mappings=AccountProcessMapping::find($id);
+        $mappings->delete();
+        return back();
     }
 }
