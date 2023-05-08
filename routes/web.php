@@ -71,7 +71,7 @@ Route::any('/accounts-process/destroy/{id}',[AccountProcessController::class,'de
 Route::any('/accounts-process/show/{id}',[AccountProcessController::class,'show'])->name('accounts-process.show');
 Route::any('/accounts-process/update',[AccountProcessController::class,'update'])->name('accounts-process.update');
 
-
+// For Account Process Mapping
 
 Route::resources(
     [

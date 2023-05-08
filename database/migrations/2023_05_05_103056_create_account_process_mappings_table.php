@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('account_process_mappings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('process_id');
+            $table->foreignId('account_id');
+            $table->string('transaction_side');
             $table->timestamps();
+
+            // Relation Constraints
+            $table->foreign('process_id')->references('id')->on('account_processes')->onDelete('cascade');
+            $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
+
         });
     }
 

@@ -43,9 +43,9 @@ class AccountProcessController extends Controller
      */
     public function show(string $id)
     {
-        $account=AccountProcess::find($id);
-        $accounts=AccountProcessMapping::where('process_id',$id)->latest()->get();
-        return view('account-process.show', compact('accounts','account'));
+        $process=AccountProcess::find($id);
+        $mappings=AccountProcessMapping::where('process_id',$id)->latest()->get();
+        return view('account-process.show', compact('process','mappings'));
     }
 
     /**
@@ -53,15 +53,21 @@ class AccountProcessController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $process=AccountProcess::find($id);
+        return view('account-process.edit', compact('process'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $process=AccountProcess::find($request->id);
+        $process->name = $request->input('name');
+        $process->save();
+    
+        return redirect()->route('accounts-process.index');
+
     }
 
     /**
@@ -72,5 +78,14 @@ class AccountProcessController extends Controller
         $account=AccountProcess::find($id);
         $account->delete();
         return back();
+    }
+
+
+    // For Add Process Mapping
+
+    public function create_mapping($id)
+    {
+        $process=AccountProcess::find($id);
+        return view('account-process.create-mapping',compact($process));
     }
 }
