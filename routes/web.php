@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\AccountTypeController;
 use App\Http\Controllers\FinancialYearController;
 use App\Http\Controllers\AccountProcessController;
@@ -75,6 +76,16 @@ Route::any('/accounts-process/update',[AccountProcessController::class,'update']
 Route::get('/accounts-process-mapping/create/{id}',[AccountProcessController::class,'create_mapping'])->name('accounts-process-mapping.create');
 Route::any('/accounts-process-mapping/store',[AccountProcessController::class,'store_mapping'])->name('accounts-process-mapping.store');
 Route::any('/accounts-process-mappings/destroy/{id}',[AccountProcessController::class,'destroy_mapping'])->name('accounts-process-mapping.destroy');
+
+
+Route::get('/suppliers', [SupplierController::class, 'index'])->name('suppliers.index');
+Route::get('/suppliers/create', [SupplierController::class, 'create'])->name('suppliers.create');
+Route::post('/suppliers', [SupplierController::class, 'store'])->name('suppliers.store');
+Route::get('/suppliers/{id}/edit', [SupplierController::class, 'edit'])->name('suppliers.edit');
+Route::put('/suppliers/{id}', [SupplierController::class, 'update'])->name('suppliers.update');
+Route::delete('/suppliers/{id}', [SupplierController::class, 'destroy'])->name('suppliers.destroy');
+
+
 
 
 Route::resources(
